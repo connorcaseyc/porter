@@ -10,7 +10,7 @@ import java.util.List;
 import com.proj2.model.Users;
 import com.proj2.util.ConnectionUtil;
 
-public class PlatformDao {
+public class UsersDao implements DaoBase<Users> {
 	
 //	Create
 	
@@ -41,6 +41,30 @@ public class PlatformDao {
 		for(int i=0; i<userList.size(); i++) {
 			System.out.println(userList.get(i));
 		}
+	}
+
+	@Override
+	public int create(Users t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Users> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(Users t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int shadowRealm(Users t) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
