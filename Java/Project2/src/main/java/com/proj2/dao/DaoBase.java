@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface DaoBase <T>
 {
-		public int create(T t);
+		public void create(T t);
 		
 		public List<T> readAll(); 
 		
-		public int update (T t);
+		public void update (String s);
 		
-		int shadowRealm(T t);
+		public void shadowRealm(String s);
 		
 //		T findById(int id);
 		
