@@ -12,4 +12,11 @@ public class UsersService {
 		
 		return UsersDao.readUserList();
 	}
+	
+	
+	public static void addUser() {
+		
+	}
+	
+	
 }
