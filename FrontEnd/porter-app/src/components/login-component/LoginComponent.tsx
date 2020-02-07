@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { SyntheticEvent } from 'react';
 import { Form, Label, Col, Input, FormGroup, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -74,4 +75,11 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
             </div>
         )
     }
+=======
+import React from 'react';
+
+interface ILoginComponentProps{
+    username: string;
+    password: string;
+>>>>>>> 46f2058b709fa6a9a40ef5b36a453b8a330d99c6
 }
