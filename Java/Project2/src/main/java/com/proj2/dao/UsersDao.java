@@ -1,6 +1,7 @@
 package com.proj2.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,9 +45,23 @@ public class UsersDao implements DaoBase<Users> {
 	}
 
 	@Override
-	public int create(Users t) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void create(Users t) {
+		try {
+			Connection conn = ConnectionUtil.connect();
+			String sql = "insert into users (firstname, lastname, username, password, email)"
+					+ "values (?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, t.getFirstname());
+			ps.setString(2, t.getLastname());
+			ps.setString(3, t.getUsername());
+			ps.setString(4, t.getPassword());
+			ps.setString(5, t.getEmail());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
@@ -56,20 +71,37 @@ public class UsersDao implements DaoBase<Users> {
 	}
 
 	@Override
-	public int update(Users t) {
+	public void update(String s) {
 		// TODO Auto-generated method stub
-		return 0;
+		try {
+			Connection conn = ConnectionUtil.connect();
+			String sql = "update users set password where username = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, s);
+			ps.executeUpdate();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
-	public int shadowRealm(Users t) {
+	public void shadowRealm(String s) {
 		// TODO Auto-generated method stub
-		return 0;
+		try {
+			Connection conn = ConnectionUtil.connect();
+			String sql = "delete from users where username = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, s);
+			ps.executeUpdate();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
-	
-//	Update
-	
-//	Delete
 
+	
 }
