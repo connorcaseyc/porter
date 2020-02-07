@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: Stefan B.D. Small
-=======
-Built-By: A
->>>>>>> f7c5b449c144c094795717e50e9c7c91a872f636
 Build-Jdk: 1.8.0_231
 Created-By: Maven Integration for Eclipse
 
