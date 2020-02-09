@@ -1,0 +1,67 @@
+#landingpage {
+  height: 500px;
+  color: white;
+  background-color: black;
+}
+#lefthalflanding {
+  float: left;
+  width: 50%;
+  height: 93%;
+  background-color: #006442;
+}
+#righthalflanding {
+  float: right;
+  width: 50%;
+  height: 93%;
+  padding: 10px;
+}
+#rightloginbar {
+  float: right;
+  width: 75%;
+}
+#loginuname {
+  float: left;
+  width: 35%;
+  margin-right: 5px;
+}
+#loginpword {
+  width: 35%;
+  float: left;
+  margin-right: 5px;
+}
+#loginbtn {
+  float: left;
+  display: block;
+}
+#forgotpwbtn {
+  float: right;
+  padding-right: 20px;
+}
+#landingfoot {
+  width: 100%;
+  text-align: center;
+  font-size: small;
+}
+#feedpage {
+  height: 750px;
+  color: white;
+  background-color: black;
+}
+#leftcol {
+  width: 30%;
+  float: left;
+  height: 90%;
+}
+#rightcol {
+  width: 70%;
+  float: right;
+  height: 90%;
+}
+#feedfoot {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+#cards {
+  color: black;
+}
