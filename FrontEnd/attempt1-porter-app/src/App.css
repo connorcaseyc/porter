@@ -1,0 +1,65 @@
+#landingbody {
+  background-color: rgba(0,13,13,0.97);
+  color: white;
+  height: 500px;
+}
+#lefthalf {
+  float: left;
+  /* background-color: #8080AA; */
+  /* background-color: #7881b2; */
+  /* background-color: #355e3b; */
+  /* background-color: #35654d; */
+  background-color: #006442;
+  width: 50%;
+  height: 95%;
+  padding: 10px;
+}
+#lefthead {
+  height: 20%;
+  font-family: 'Baumans', cursive;
+  font-size: xx-large;
+}
+#leftbody {
+  font-family: 'Baumans', cursive;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 40px;
+}
+#righthalf {
+  float: right;
+  width: 50%;
+  height: 95%;
+  padding: 20px;
+}
+#righthead {
+  height: 20%;
+}
+#porterinfo {
+  /* font-family: 'Dosis', sans-serif; */
+  font-weight: bolder;
+  padding-top: 40px;
+  padding-left: 120px;
+}
+#loginusername {
+  float: right;
+  width: 125px;
+  margin-right: 10px;
+}
+#loginpassword {
+  float: right;
+  width: 125px;
+  margin-right: 10px;
+}
+#loginbtn {
+  float: right;
+}
+#forgotpwbtn {
+  float: right;
+  margin-right: 100px;
+  font-size: smaller;
+}
+
+#footbar {
+  text-align: center;
+  font-size: smaller;
+}
