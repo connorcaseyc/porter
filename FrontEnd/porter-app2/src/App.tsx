@@ -42,14 +42,14 @@ const App: React.FC = () => {
             <Route path='/tic-tac-toe' component={T3Component}/>
             <Route path='/starwars' component={StarWarsComponent}/>
             <Route path='/pokemon' component={PokemonComponent}/>
-            <Route path='/login' component={LoginComponent} />
+            {/* <Route path='/login' component={LoginComponent} /> */}
             <Route path='/chucknorris' component={ChuckNorrisComponent} />
             <Route path='/lifecycle' component={LifecycleComponent} />
             <Route path='/second' component={SecondComponent} />
             <Route path='/clicker' component={ClickerComponent} />
             <Route path='/props' render={() => <PropComponent name={'Alec'} color={'grey'} />} />
             {/* the syntax for a component with props, is to use the render property with an arrow function and the component with its props */}
-            <Route path='/' component={FirstComponent} />
+            <Route path='/' component={LoginComponent} />
           </Switch>
         </Router>
       </Provider>

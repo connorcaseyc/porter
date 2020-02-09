@@ -94,7 +94,6 @@ export class PokemonComponent extends React.Component<IPokemonProps, IPokemonSta
                             </PaginationItem>
                         </Pagination>
                         <br/>
-                        <p>test</p>
                     </div>
 
                     <div id="feedfoot">
