@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- jdbc stuff -->
+		<property name="hibernate.connection.username">mike</property>
+		<property name="hibernate.connection.password">mike</property>
+		<property name="hibernate.connection.url">
+			jdbc:postgresql://connordb.crcfj1jsjtlz.us-east-1.rds.amazonaws.com:5432/proj2
+		</property>
+		<property name="hibernate.connection.driver.class">org.postgresql.Driver</property>
+		<property name="hibernate.default_schema">hibernate</property>
+		
+		<!-- additional hibernate configuration -->
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.show_sql">true</property>
+		<property name="hibernate.connection.format_sql">true</property>
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="hibernate.hbm2ddl.auto">none</property> 
+		
+		<!-- When needing to change tables comment out none above and use line below -->
+		<!-- <property name="hibernate.hbm2ddl.auto">create</property>  -->
+		
+		<!-- Attempting to configure session?... below -->
+		<!-- <property name="hibernate.current_session_context_class">org.hibernate.context.ThreadLocalSessionContext</property> -->
+		
+		<mapping class="com.proj2.model.Users"/>
+		<mapping class="com.proj2.model.Content"/>
+		<mapping class="com.proj2.model.Likes"/>
+		<mapping class="com.proj2.model.Comments"/>
+	</session-factory>
+
+</hibernate-configuration>
