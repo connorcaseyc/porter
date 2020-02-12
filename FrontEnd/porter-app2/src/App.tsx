@@ -16,6 +16,7 @@ import { store } from './Store';
 import  StarWarsComponent  from './components/star-wars-component/StarWarsContainer';
 import  T3Component  from './components/tic-tac-toe-component/T3Container';
 import SignUpComponent from './components/sign-up-component/SignUpContainer';
+import  ForgottenPasswordComponent from './components/forgotten-password-component/ForgottenPasswordContainer';
 
 //this is the root of all the components that we will make
 //two rules to being a component
@@ -51,7 +52,9 @@ const App: React.FC = () => {
             <Route path='/props' render={() => <PropComponent name={'Alec'} color={'grey'} />} />
             <Route path='/signup' component={SignUpComponent}/>
             {/* the syntax for a component with props, is to use the render property with an arrow function and the component with its props */}
+            <Route path='/ForgottenPassword' component = {ForgottenPasswordComponent}/>
             <Route path='/' component={LoginComponent} />
+           
           </Switch>
         </Router>
       </Provider>

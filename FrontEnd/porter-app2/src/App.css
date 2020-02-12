@@ -1,5 +1,5 @@
 #landingpage {
-  height: 500px;
+  height: 1000px;
   color: white;
   background-color: black;
 }
@@ -7,7 +7,7 @@
   float: left;
   width: 50%;
   height: 93%;
-  background-color: #006442;
+  background-color: #7f3bfd;
 }
 #righthalflanding {
   float: right;
@@ -15,9 +15,32 @@
   height: 93%;
   padding: 10px;
 }
+#swaprighthalf{
+  float: right;
+  width: 50%;
+  height: 93%;
+  background-color: hsl(157, 72%, 39%);
+}
+#swaplefthalf{
+  float: left;
+  width: 50%;
+  height: 93%;
+  padding: 10px;
+}
 #rightloginbar {
   float: right;
   width: 75%;
+}
+#leftloginbar{
+  /* float: left; */
+  /* width: 25%; */
+  border-style: solid;
+  border-width: 5px;
+  border-color: red;
+  display: inline-block; 
+  margin-left: 20pc ;
+  padding: 3px;
+  text-align: center;
 }
 #loginuname {
   float: left;
@@ -36,6 +59,10 @@
 #forgotpwbtn {
   float: right;
   padding-right: 20px;
+}
+#signupbtn{
+  padding: auto;
+
 }
 #landingfoot {
   width: 100%;
