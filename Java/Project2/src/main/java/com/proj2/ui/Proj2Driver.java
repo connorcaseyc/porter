@@ -28,7 +28,7 @@ public class Proj2Driver {
 	
 	public static void insertContentText() {
 		Users u = ud.findById(5);
-		Content c1 = new Content(0, u, "Hello World! It's a me your boy Stefan");
+		Content c1 = new Content(0, u, "Hello World! It's a me your boy Stefan, again", u);
 		System.out.println(u);
 		cd.save(c1);
 	}

@@ -19,10 +19,10 @@ public class ContentDao implements DaoBase<Content>
 			String sql = "insert into content (author, textpost, photopost, likes)"
 					+ "values (?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, t.getAuthor());
+//			ps.setString(1, t.getAuthor());
 			ps.setString(2, t.getTextpost());
 			ps.setBytes(3, t.getPhotopost());
-			ps.setInt(4, t.getLikes());
+//			ps.setInt(4, t.getLikes());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
