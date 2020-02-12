@@ -80,7 +80,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                                 onChange={this.updatePassword} />
                             <Button id="loginbtn">Login</Button>
                         </Form>
-                        <Button id="forgotpwbtn" color="link">Forgot Password?</Button>
+                        <Link to ="/ForgottenPassword">Forgot Password?</Link>
                         <p>{this.props.loginMessage}</p>
                         <br/>
                         <br/>
