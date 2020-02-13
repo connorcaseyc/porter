@@ -1,19 +1,19 @@
 package com.proj2.ui;
 
 import com.proj2.dao.ContentDaoClass;
-import com.proj2.dao.UserDao;
+import com.proj2.dao.OLDUserDao;
 import com.proj2.model.Content;
 import com.proj2.model.Users;
 
 public class Proj2Driver {
 	
-	static UserDao ud = new UserDao();
+	static OLDUserDao ud = new OLDUserDao();
 	static ContentDaoClass cd = new ContentDaoClass();
 	
 	public static void main(String[] args) {
 //		insertUserValues();
 		
-		insertContentText();
+//		insertContentText();
 	}
 	
 	public static void insertUserValues() {

@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import com.proj2.model.Users;
 import com.proj2.util.HibernateUtil;
 
-public class UserDao implements DaoContract<Users> {
+public class OLDUserDao implements DaoContract<Users> {
 
 	@Override
 	public List<Users> findAll() {

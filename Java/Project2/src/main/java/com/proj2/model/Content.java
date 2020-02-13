@@ -98,7 +98,7 @@ public class Content {
 				+ ", content_post=" + content_post + "]";
 	}
 
-	
+	public Content() {}
 	
 	public Content(int content_id, Users u_id, String textpost, byte[] photopost, Set<Likes> like_post,
 			Set<Comments> comment_post, Users content_post) {
