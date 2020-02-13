@@ -1,22 +1,25 @@
 package com.proj2.service;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.proj2.dao.UsersDao;
 import com.proj2.model.Users;
 
+@Service
 public class UsersService {
 
-	public static List<Users> seeAllUsers() {
-		
-		return UsersDao.readUserList();
+	private UsersDao ud;
+
+	@Autowired
+	public void setUd(UsersDao ud) {
+		this.ud = ud;
 	}
 	
-	
-	public static void addUser() {
-		
+	public List<Users> getAll() {
+		return ud.findAll();
 	}
-	
 	
 }

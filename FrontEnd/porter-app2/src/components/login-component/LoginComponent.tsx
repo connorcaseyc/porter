@@ -3,7 +3,7 @@ import { Form, Label, Col, Input, FormGroup, Button,TabContent, TabPane, Nav,
      NavItem, NavLink, Card, CardTitle, CardText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
-
+import axios from 'axios';
 
 
 interface ILoginState {
@@ -28,6 +28,8 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
         //by putting event binding and data binding together, we achieve something called two way data binding
         //this is where the user can update state and if state is updated the user sees the change
     }
+
+    
     //this is an example of event binding
     //we take an event created by a user, and use it to update data in our state
     updateUsername = (event: any) => {
@@ -49,8 +51,21 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
 
 
     submitLogin = async (event: SyntheticEvent) => {
-        event.preventDefault()
-        this.props.updateCurrentUser(this.state.username,this.state.password)
+        event.preventDefault();
+        this.props.updateCurrentUser(this.state.username,this.state.password);
+
+        const user = {
+           username: this.state.username,
+           password: this.state.password
+        };
+        //Subject to change A LOT
+        axios.post('url...', {user} )
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+
+
     }
 
 
