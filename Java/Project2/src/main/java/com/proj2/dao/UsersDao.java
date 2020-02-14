@@ -14,9 +14,10 @@ import com.proj2.model.Users;
 @Transactional
 public class UsersDao {
 	
+	@Autowired
 	private SessionFactory sesfact;
 
-	@Autowired
+//	@Autowired
 	public UsersDao(SessionFactory sesfact) {
 		super();
 		this.sesfact = sesfact;
@@ -30,6 +31,15 @@ public class UsersDao {
 		return sesfact.getCurrentSession().createQuery("from Users", Users.class).list();
 	}
 
-
+	public Users getByUsername(String username) {
+		@SuppressWarnings("unchecked")
+		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
+				"from Users where username = '"+username+"'").list();
+		if(list.size()>0) {
+			System.out.println(list.get(0).getUsername());
+			return list.get(0);
+		}
+		return null;
+	}
 	
 }

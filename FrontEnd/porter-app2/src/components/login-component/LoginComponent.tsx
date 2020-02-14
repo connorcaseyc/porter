@@ -59,7 +59,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
            password: this.state.password
         };
         //Subject to change A LOT
-        axios.post('url...', {user} )
+        axios.post('http://localhost:7070/Spring-MVC/user.app', {user} )
         .then(res => {
             console.log(res);
             console.log(res.data);

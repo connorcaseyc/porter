@@ -10,13 +10,23 @@ import com.proj2.model.Users;
 
 @Service
 public class UsersService {
-
+	
+	
 	private UsersDao ud;
 
 	@Autowired
 	public void setUd(UsersDao ud) {
 		this.ud = ud;
 	}
+//	public Users authenticate(Users u) {
+//		Users dbu = ud.getByUsername(u.getUsername());
+//		
+//		if(dbu != null) {
+//			return (u.getPassword().equals(dbu.getPassword()))? dbu:null;
+//		}
+//		return null;
+//	}
+	
 	
 	public List<Users> getAll() {
 		return ud.findAll();
