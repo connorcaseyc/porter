@@ -11,15 +11,15 @@ import com.proj2.model.Users;
 @Service
 public class UsersService {
 
-	private UsersDao ud;
-
 	@Autowired
-	public void setUd(UsersDao ud) {
-		this.ud = ud;
-	}
+	UsersDao ud;
 	
 	public List<Users> getAll() {
 		return ud.findAll();
+	}
+	
+	public Users insertUser(Users user) {
+		return ud.insert(user);
 	}
 	
 }

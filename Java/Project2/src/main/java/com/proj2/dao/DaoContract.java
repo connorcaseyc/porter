@@ -10,7 +10,7 @@ public interface DaoContract<T> {
 	
 	T update(T t);
 	
-	T save(T t);
+	T insert(T t);
 	
 	T delete(int id);
 	

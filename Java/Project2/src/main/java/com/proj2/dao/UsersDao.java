@@ -14,22 +14,16 @@ import com.proj2.model.Users;
 @Transactional
 public class UsersDao {
 	
-	private SessionFactory sesfact;
-
 	@Autowired
-	public UsersDao(SessionFactory sesfact) {
-		super();
-		this.sesfact = sesfact;
-	}
+	SessionFactory sesfact;
 	
 	public List<Users> findAll() {
-//		List<Users> usersList = sesfact.openSession().createQuery("from Users", Users.class).list();
-//		sesfact.close();
-//		return usersList;
-		
 		return sesfact.getCurrentSession().createQuery("from Users", Users.class).list();
 	}
 
-
+	public Users insert(Users user) {
+		sesfact.getCurrentSession().save(user);
+		return user;
+	}
 	
 }
