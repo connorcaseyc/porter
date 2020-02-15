@@ -18,7 +18,8 @@ public class UsersService {
 	public void setUd(UsersDao ud) {
 		this.ud = ud;
 	}
-//	public Users authenticate(Users u) {
+	
+//	public Users verify(Users u) {
 //		Users dbu = ud.getByUsername(u.getUsername());
 //		
 //		if(dbu != null) {
@@ -27,9 +28,20 @@ public class UsersService {
 //		return null;
 //	}
 	
-	
+	public Users check(Users u) {
+		Users dbu = ud.getByUsername(u.getUsername());
+		System.out.println("Database hash:  "+dbu.getPassword());
+		if(dbu != null) {
+			String pass = ud.hashPassword(u.getUsername(), u.getPassword());
+			System.out.println("password hashed: "+pass);
+			System.out.println(dbu.getPassword() == pass);
+			return (dbu.getPassword().equals(pass) ? dbu:null);
+		}
+		return null;
+	}
 	public List<Users> getAll() {
 		return ud.findAll();
 	}
+	
 	
 }
