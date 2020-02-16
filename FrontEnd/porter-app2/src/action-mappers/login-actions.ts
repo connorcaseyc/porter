@@ -1,5 +1,5 @@
-import { apiLogin } from "../remote/garden-book/garden-book-clients"
-
+import { apiLogin } from "../remote/project2-client/project2-api"
+// import {authenticateUser} from '../remote/project2-client/project2-api';
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN: 'LOGIN_SUCCESSFUL_LOGIN',

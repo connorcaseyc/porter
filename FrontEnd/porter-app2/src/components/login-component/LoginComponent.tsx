@@ -4,9 +4,11 @@ import { Form, Label, Col, Input, FormGroup, Button,TabContent, TabPane, Nav,
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import axios from 'axios';
+import {axiosConfig} from '../../remote/axios-config/AxiosConfig';
+// import {authenticateUser} from '../../remote/project2-client/project2-api'
 
 
-interface ILoginState {
+export default interface ILoginState {
     username: string
     password: string
     
@@ -53,18 +55,6 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault();
         this.props.updateCurrentUser(this.state.username,this.state.password);
-
-        const user = {
-           username: this.state.username,
-           password: this.state.password
-        };
-        //Subject to change A LOT
-        axios.post('http://localhost:7070/Spring-MVC/user.app', {user} )
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-        })
-
 
     }
 
