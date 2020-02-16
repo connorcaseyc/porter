@@ -22,4 +22,12 @@ public class UsersService {
 		return ud.insert(user);
 	}
 	
+	public Users getByEmail(String email) {
+		return ud.findByEmail(email);
+	}
+	
+	public Users getById(int id) {
+		return ud.findById(id);
+	}
+	
 }

@@ -26,4 +26,12 @@ public class UsersDao {
 		return user;
 	}
 	
+	public Users findByEmail(String email) {
+		return sesfact.getCurrentSession().get(Users.class, email);
+	}
+	
+	public Users findById(int id) {
+		return sesfact.getCurrentSession().get(Users.class, id);
+	}
+	
 }

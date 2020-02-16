@@ -18,7 +18,7 @@ import com.proj2.service.PostsService;
 
 @Controller
 @CrossOrigin(origins= {"http://localhost:3000"})
-@RequestMapping(value="/post.app")
+//@RequestMapping(value="/post.app")
 public class PostsController {
 	
 	@Autowired 
