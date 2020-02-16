@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import UserSubmit from './components/userSubmit';
-// import UserTable from './components/userTable';
+import UserSubmit from './components/userSubmit';
+import UserTable from './components/userTable';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Landing } from './components/Landing';
 
@@ -14,8 +14,8 @@ const App: React.FC = () => {
                 <div>
 
                     <Switch>
-                        {/* <Route path="/adduser" component={UserSubmit}/> */}
-                        {/* <Route path="/userlist" component={UserTable}/> */}
+                        <Route path="/adduser" component={UserSubmit}/>
+                        <Route path="/userlist" component={UserTable}/>
                         <Route path='/' component={Landing}/>
                     </Switch>
                 
