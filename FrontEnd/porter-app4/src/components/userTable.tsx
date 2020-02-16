@@ -19,7 +19,7 @@ export const UserTable:React.FC<any> = (props:any) => {
                 </tbody>
             </Table>
             <Link to='/'>Landing</Link>
-            <Link to='/adduser'>Add New User</Link>'
+            <Link to='/adduser'>Add New User</Link>
         </div>
     )
 }

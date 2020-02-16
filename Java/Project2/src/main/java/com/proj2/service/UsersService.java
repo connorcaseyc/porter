@@ -30,4 +30,16 @@ public class UsersService {
 		return ud.findById(id);
 	}
 	
+	public Users getByUsername(String username) {
+		return ud.findByUsername(username);
+	}
+	
+	public void deleteUser(Users user) {
+		ud.delete(user);
+	}
+	
+	public Users updateUser(Users user) {
+		return ud.update(user);
+	}
+	
 }

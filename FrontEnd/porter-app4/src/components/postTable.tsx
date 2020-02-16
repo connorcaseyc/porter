@@ -15,7 +15,8 @@ export const PostTable:React.FC<any> = (props:any) => {
         <div>
             <Table>
                 <tbody>
-                    {postList.map((r:IPost) => <PostRow key={r.id} post={r}/>)}
+                    {/* {postList.map((r:IPost) => <PostRow key={r.id} post={r}/>)} */}
+                    {postList.map((r:IPost) => <PostRow post={r}/>)}
                 </tbody>
             </Table>
             <Link to='/'>Landing</Link>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Input, Form } from 'reactstrap';
 import { publishPost } from '../utilities/api';
 import { Link } from 'react-router-dom';
+import { networkInterfaces } from 'os';
 
 export const PostSubmit:React.FC<any> = (props:any) => {
     const [textpost, setTextpost] = useState("");
@@ -13,6 +14,7 @@ export const PostSubmit:React.FC<any> = (props:any) => {
                 id:0,
                 textpost,
                 photopost,
+                timesubmit: "", 
                 user_posts: null
 
             }).then(r=>console.log(r.data))}>

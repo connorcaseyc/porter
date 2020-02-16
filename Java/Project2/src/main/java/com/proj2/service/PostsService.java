@@ -26,5 +26,13 @@ public class PostsService {
 	public List<Posts> getPostsByUser(Users user_posts) {
 		return pd.findByUser(user_posts);
 	}
+	
+	public Posts updatePost(Posts post) {
+		return pd.update(post);
+	}
+	
+	public void deletePost(Posts post) {
+		pd.delete(post);
+	}
 
 }

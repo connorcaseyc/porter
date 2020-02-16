@@ -38,15 +38,24 @@ public class PostsController {
 		return new ResponseEntity<>(p, HttpStatus.ACCEPTED);
 	}
 	
-	@PostMapping
-	public @ResponseBody Posts addPost(@RequestBody Posts post) {
-		return ps.insertPost(post);
-	}
-	
 	@RequestMapping(method=RequestMethod.GET, value="/userpostlist.app",
 			produces="application/json")
 	public ResponseEntity<List<Posts>> getAllUserPosts(@RequestBody Users user_posts) {
 		return new ResponseEntity<>(ps.getPostsByUser(user_posts), HttpStatus.ACCEPTED);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/deletepost.app", 
+			produces="application/json")
+	public ResponseEntity<Posts> deletePost(@RequestBody Posts post) {
+		ps.deletePost(post);
+		return new ResponseEntity<>(post, HttpStatus.ACCEPTED);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/updatepost.app", 
+			produces="application/json")
+	public ResponseEntity<Posts> updatePost(@RequestBody Posts post) {
+		ps.updatePost(post);
+		return new ResponseEntity<>(post, HttpStatus.ACCEPTED);
 	}
 
 }

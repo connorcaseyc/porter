@@ -4,5 +4,6 @@ export default interface IPost {
     id: number;
     textpost: string;
     photopost: string;
-    user_posts: IUser|null
+    timesubmit: string;
+    user_posts: IUser|null;
 }

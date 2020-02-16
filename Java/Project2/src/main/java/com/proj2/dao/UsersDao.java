@@ -34,4 +34,17 @@ public class UsersDao {
 		return sesfact.getCurrentSession().get(Users.class, id);
 	}
 	
+	public Users findByUsername(String username) {
+		return sesfact.getCurrentSession().get(Users.class, username);
+	}
+	
+	public Users update(Users user) {
+		sesfact.getCurrentSession().update(user);
+		return user;
+	}
+	
+	public void delete(Users user) {
+		sesfact.getCurrentSession().delete(user);
+	}
+	
 }

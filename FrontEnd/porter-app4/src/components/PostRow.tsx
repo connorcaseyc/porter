@@ -20,6 +20,9 @@ export const PostRow:React.FC<IPR> = (props:IPR) => {
                     {props.post.photopost}
                 </td>
                 <td>
+                    {props.post.timesubmit}
+                </td>
+                <td>
                     {props.post.user_posts}
                 </td>
             </tr>

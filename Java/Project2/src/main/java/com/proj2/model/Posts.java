@@ -1,6 +1,8 @@
 package com.proj2.model;
 
-import java.util.Arrays;
+
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -13,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.proj2.model.Comments;
 import com.proj2.model.Likes;
@@ -32,6 +36,10 @@ public class Posts {
 	
 	@Column(name="photopost")
 	private String photopost;
+	
+	@Column(name="timesubmit")
+	@CreationTimestamp
+	private Timestamp timesubmit;
 	
 	@OneToMany(mappedBy = "post_likes", fetch = FetchType.EAGER)
 	private Set<Likes> post_likes;
@@ -90,7 +98,15 @@ public class Posts {
 	public void setUser_posts(Users user_posts) {
 		this.user_posts = user_posts;
 	}
-	
+
+	public Timestamp getTimesubmit() {
+		return timesubmit;
+	}
+
+	public void setTimesubmit(Timestamp timesubmit) {
+		this.timesubmit = timesubmit;
+	}
+
 	@Override
 	public String toString() {
 		return "Posts [content_id=" + content_id + ", textpost=" + textpost + ", photopost=" + photopost + "]";
@@ -98,18 +114,20 @@ public class Posts {
 
 	public Posts() {}
 
-	public Posts(int content_id, String textpost, Users user_posts) {
-		super();
-		this.content_id = content_id;
-		this.textpost = textpost;
-		this.user_posts = user_posts;
-	}
-
-	public Posts(int content_id, String textpost, String photopost, Users user_posts) {
+	public Posts(int content_id, String textpost, String photopost, Timestamp timesubmit, Users user_posts) {
 		super();
 		this.content_id = content_id;
 		this.textpost = textpost;
 		this.photopost = photopost;
+		this.timesubmit = timesubmit;
+		this.user_posts = user_posts;
+	}
+
+	public Posts(int content_id, String textpost, Timestamp timesubmit, Users user_posts) {
+		super();
+		this.content_id = content_id;
+		this.textpost = textpost;
+		this.timesubmit = timesubmit;
 		this.user_posts = user_posts;
 	}
 	

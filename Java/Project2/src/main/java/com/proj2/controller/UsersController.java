@@ -47,5 +47,24 @@ public class UsersController {
 	public @ResponseBody Users getById(@PathVariable("id") int id) {
 		return us.getById(id);
 	}
+	
+	@GetMapping("{username}/username.app")
+	public @ResponseBody Users getByUsername(@PathVariable("username") String username) {
+		return us.getByUsername(username);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/deleteuser.app", 
+			produces="application/json")
+	public ResponseEntity<Users> deleteUser(@RequestBody Users user) {
+		us.deleteUser(user);
+		return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/updateuser.app", 
+			produces="application/json")
+	public ResponseEntity<Users> updateUser(@RequestBody Users user) {
+		us.updateUser(user);
+		return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+	}
 
 }

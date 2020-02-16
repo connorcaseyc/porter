@@ -29,11 +29,20 @@ public class PostsDao {
 	
 	public List<Posts> findByUser(Users user_posts) {
 		List<Posts> userPostList =
-				(List<Posts>)sesfact.getCurrentSession().createQuery("from Posts where user_posts='"+user_posts+"'").list();
+				(List<Posts>)sesfact.getCurrentSession().createQuery("from Posts where user_posts='"+user_posts+"'", Posts.class).list();
 		if(userPostList.size() > 0) {
 			return userPostList;
 		} 
 		return null;
+	}
+	
+	public Posts update(Posts p) {
+		sesfact.getCurrentSession().update(p);
+		return p;
+	}
+	
+	public void delete(Posts p) {
+		sesfact.getCurrentSession().delete(p);
 	}
 
 }
