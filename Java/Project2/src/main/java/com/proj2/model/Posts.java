@@ -31,15 +31,15 @@ public class Posts {
 	private String textpost;
 	
 	@Column(name="photopost")
-	private byte[] photopost;
+	private String photopost;
 	
-	@OneToMany(mappedBy = "post_likes", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "post_likes", fetch = FetchType.EAGER)
 	private Set<Likes> post_likes;
 	
-	@OneToMany(mappedBy = "post_comments", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "post_comments", fetch = FetchType.EAGER)
 	private Set<Comments> post_comments;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_posts")
 	private Users user_posts;
 
@@ -59,11 +59,11 @@ public class Posts {
 		this.textpost = textpost;
 	}
 
-	public byte[] getPhotopost() {
+	public String getPhotopost() {
 		return photopost;
 	}
 
-	public void setPhotopost(byte[] photopost) {
+	public void setPhotopost(String photopost) {
 		this.photopost = photopost;
 	}
 
@@ -93,10 +93,9 @@ public class Posts {
 	
 	@Override
 	public String toString() {
-		return "Posts [content_id=" + content_id + ", textpost=" + textpost + ", photopost="
-				+ Arrays.toString(photopost) + "]";
+		return "Posts [content_id=" + content_id + ", textpost=" + textpost + ", photopost=" + photopost + "]";
 	}
-	
+
 	public Posts() {}
 
 	public Posts(int content_id, String textpost, Users user_posts) {
@@ -106,7 +105,7 @@ public class Posts {
 		this.user_posts = user_posts;
 	}
 
-	public Posts(int content_id, String textpost, byte[] photopost, Users user_posts) {
+	public Posts(int content_id, String textpost, String photopost, Users user_posts) {
 		super();
 		this.content_id = content_id;
 		this.textpost = textpost;

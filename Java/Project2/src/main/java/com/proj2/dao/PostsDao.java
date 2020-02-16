@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.proj2.model.Posts;
+import com.proj2.model.Users;
 
 @Repository
 @Transactional
@@ -24,6 +25,15 @@ public class PostsDao {
 	public Posts insert(Posts t) {
 		sesfact.getCurrentSession().save(t);
 		return t; 
+	}
+	
+	public List<Posts> findByUser(Users user_posts) {
+		List<Posts> userPostList =
+				(List<Posts>)sesfact.getCurrentSession().createQuery("from Posts where user_posts='"+user_posts+"'").list();
+		if(userPostList.size() > 0) {
+			return userPostList;
+		} 
+		return null;
 	}
 
 }

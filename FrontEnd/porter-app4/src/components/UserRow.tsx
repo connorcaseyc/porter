@@ -8,7 +8,8 @@ export interface IUR {
 export const UserRow:React.FC<IUR> = (props:IUR) => {
     return (
         <>
-            <tr key={props.user.id}>
+            {/* <tr key={props.user.id}> */}
+            <tr>
                 <td>
                     {props.user.id}
                 </td>

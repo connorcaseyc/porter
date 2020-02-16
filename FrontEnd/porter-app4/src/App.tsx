@@ -5,6 +5,8 @@ import UserSubmit from './components/userSubmit';
 import UserTable from './components/userTable';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Landing } from './components/Landing';
+import { PostTable } from './components/postTable';
+import PostSubmit from './components/postSubmit';
 
 const App: React.FC = () => {
 
@@ -16,7 +18,9 @@ const App: React.FC = () => {
                     <Switch>
                         <Route path="/adduser" component={UserSubmit}/>
                         <Route path="/userlist" component={UserTable}/>
-                        <Route path='/' component={Landing}/>
+                        <Route path="/postlist" component={PostTable}/>
+                        <Route path="/addpost" component={PostSubmit}/>
+                        <Route path="/" component={Landing}/>
                     </Switch>
                 
                 </div>

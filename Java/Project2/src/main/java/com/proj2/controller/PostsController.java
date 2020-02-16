@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.proj2.model.Posts;
+import com.proj2.model.Users;
 import com.proj2.service.PostsService;
 
 @Controller
-@CrossOrigin(origins= {"http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:3000"})
 //@RequestMapping(value="/post.app")
 public class PostsController {
 	
@@ -30,9 +31,22 @@ public class PostsController {
 		return new ResponseEntity<>(ps.getAll(), HttpStatus.ACCEPTED);
 	}
 	
+	@RequestMapping(method=RequestMethod.POST, value="/addpost.app", 
+			produces="application/json")
+	public ResponseEntity<Posts> putInPost(@RequestBody Posts p) {
+		ps.insertPost(p);
+		return new ResponseEntity<>(p, HttpStatus.ACCEPTED);
+	}
+	
 	@PostMapping
 	public @ResponseBody Posts addPost(@RequestBody Posts post) {
 		return ps.insertPost(post);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/userpostlist.app",
+			produces="application/json")
+	public ResponseEntity<List<Posts>> getAllUserPosts(@RequestBody Users user_posts) {
+		return new ResponseEntity<>(ps.getPostsByUser(user_posts), HttpStatus.ACCEPTED);
 	}
 
 }
