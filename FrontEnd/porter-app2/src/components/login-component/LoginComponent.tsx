@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from 'react';
 import { Form, Label, Col, Input, FormGroup, Button,TabContent, TabPane, Nav,
      NavItem, NavLink, Card, CardTitle, CardText, Row } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import axios from 'axios';
 import {axiosConfig} from '../../remote/axios-config/AxiosConfig';
@@ -58,7 +58,9 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault();
         this.props.updateCurrentUser(this.state.username,this.state.password);
-        console.log("THE PROPS: "+this.props);
+        if(sessionStorage.getItem("user")){
+            return <Redirect to ="/pokemon"/>
+        }
     }
 
 
