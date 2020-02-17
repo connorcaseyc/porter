@@ -1,21 +1,25 @@
 package com.proj2.ui;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.proj2.dao.ContentDaoClass;
 import com.proj2.dao.OLDUserDao;
+import com.proj2.dao.UsersDao;
 import com.proj2.model.Content;
 import com.proj2.model.Users;
 
 public class Proj2Driver {
-	
+
 	static OLDUserDao ud = new OLDUserDao();
 	static ContentDaoClass cd = new ContentDaoClass();
 	
 	public static void main(String[] args) {
-//		insertUserValues();
-		
-//		insertContentText();
+
 	}
-	
+
 	public static void insertUserValues() {
 //		Users u1 = new Users(0, "Mikey", "Ninja", "mikey1", "pass", "email@domain.com");
 //		Users u1 = new Users(0, "Connor", "Casey", "connorc", "pass", "connorcaseyc@gmail.com");

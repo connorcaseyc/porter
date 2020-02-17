@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react';
 import { Form, Label, Input, Button } from 'reactstrap';
-
+import axios from 'axios';
 
 interface IForgottenPasswordState
 {
@@ -26,6 +26,13 @@ export class ForgottenPasswordComponent extends React.Component<any, IForgottenP
     submitEmail = async (event:SyntheticEvent) =>{
         event.preventDefault();
         this.props.submitEmail(this.state.email);
+
+        //Don't forget me either
+        axios.post('url...', this.state.email)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
     }
 
     render(){

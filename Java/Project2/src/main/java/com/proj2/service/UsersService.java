@@ -10,7 +10,8 @@ import com.proj2.model.Users;
 
 @Service
 public class UsersService {
-
+	
+	
 	private UsersDao ud;
 
 	@Autowired
@@ -18,8 +19,29 @@ public class UsersService {
 		this.ud = ud;
 	}
 	
+//	public Users verify(Users u) {
+//		Users dbu = ud.getByUsername(u.getUsername());
+//		
+//		if(dbu != null) {
+//			return (u.getPassword().equals(dbu.getPassword()))? dbu:null;
+//		}
+//		return null;
+//	}
+	
+	public Users check(Users u) {
+		Users dbu = ud.getByUsername(u.getUsername());
+		System.out.println("Database hash:  "+dbu.getPassword());
+		if(dbu != null) {
+			String pass = ud.hashPassword(u.getUsername(), u.getPassword());
+			System.out.println("password hashed: "+pass);
+			System.out.println(dbu.getPassword().equals(pass));
+			return (dbu.getPassword().equals(pass) ? dbu:null);
+		}
+		return null;
+	}
 	public List<Users> getAll() {
 		return ud.findAll();
 	}
+	
 	
 }

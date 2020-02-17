@@ -55,8 +55,6 @@
 		</property>
 	</bean>
 	
-	
-	
 	<!-- 
 		This will manage all of our transactions
 		This will also manage your contextual sessions
