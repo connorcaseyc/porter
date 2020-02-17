@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'reactstrap';
+import React, { useEffect, useState, SyntheticEvent } from 'react';
+import { Table, Button } from 'reactstrap';
 import { getPostList } from '../utilities/api';
 import IPost from '../model/IPost';
 import { PostRow } from './PostRow';
@@ -11,8 +11,12 @@ export const PostTable:React.FC<any> = (props:any) => {
         getPostList().then(r=>setPostList(r.data));
     }, [postList.length]);
 
+    sessionStorage.removeItem("user");
+    
+
     return (
         <div>
+            {/* <button onClick={sessionStorage.removeItem("user")}></Button> */}
             <Table>
                 <tbody>
                     {/* {postList.map((r:IPost) => <PostRow key={r.id} post={r}/>)} */}

@@ -13,7 +13,6 @@ interface ILoginProps {
     loginMessage: string
 }
 
-
 export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     constructor(props: any) {
         super(props)
@@ -80,8 +79,9 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                         <br/>
                         <br/>
                         <br/>
-                        <p><Link to='/pokemon'>View Feed</Link></p>
-                        <Link to='/signup'>Register for account</Link>
+                        <Link to='/postlist'>View Feed</Link>
+                        <br/>
+                        <Link to='/adduser'>Register for account</Link>
                         <br/>
                         <Link to='/'>Landing</Link>
                     </div>

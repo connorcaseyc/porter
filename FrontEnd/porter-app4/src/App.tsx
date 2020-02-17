@@ -13,7 +13,7 @@ import { store } from './Store';
 import { history } from './history/history';
 
 const App: React.FC = () => {
-    
+
     return (
         <div>
             <Provider store={store}>

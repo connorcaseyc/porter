@@ -14,7 +14,7 @@ export const apiLogin = async (username: string, password: string) => {
             console.log(body)
             return {
                 body,
-                loginMessage: 'successful login'
+                loginMessage: 'Successful Login'
             }
         } else if (response.status === 401) {
             return {

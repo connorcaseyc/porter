@@ -65,15 +65,11 @@ public class UsersDao {
 	public String hashPassword(String username, String password) {
 		 String toHash = username + password + "bet";
 			String hashText = "";
-			try
-			{
+			try {
 				MessageDigest md = MessageDigest.getInstance("md5");
 				
-			 // digest() method is called to calculate message digest 
-	         // of an input digest() return array of byte 
 	         byte[] messageDigest = md.digest(toHash.getBytes()); 
 
-	         // Convert byte array into signum representation 
 	         BigInteger no = new BigInteger(1, messageDigest); 
 
 	         // Convert message digest into hex value 
