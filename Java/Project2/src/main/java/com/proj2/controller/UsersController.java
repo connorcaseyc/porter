@@ -25,6 +25,11 @@ public class UsersController {
 	@Autowired
 	UsersService us;
 	
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", value="/auth.app")
+	public @ResponseBody Users authenticate(@RequestBody Users users){
+		return users != null ? us.check(users) : users;
+	}
+	
 	@RequestMapping(method=RequestMethod.GET, value="/userlist.app",
 			produces="application/json")
 	public ResponseEntity<List<Users>> getAllUsers() {

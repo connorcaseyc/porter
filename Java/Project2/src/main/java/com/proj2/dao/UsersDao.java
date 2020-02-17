@@ -37,9 +37,21 @@ public class UsersDao {
 		return sesfact.getCurrentSession().get(Users.class, id);
 	}
 	
-	public Users findByUsername(String username) {
-		return sesfact.getCurrentSession().get(Users.class, username);
+//	public Users findByUsername(String username) {
+//		return sesfact.getCurrentSession().get(Users.class, username);
+//	}
+	
+	public Users findByUsername(String username) {		
+		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
+				"from Users where username = '"+username+"'", Users.class).list();
+		if(list.size()>0) {
+			System.out.println(list.get(0).getUsername());
+			return list.get(0);
+		}
+		return null;
 	}
+	
+	
 	
 	public Users update(Users user) {
 		sesfact.getCurrentSession().update(user);

@@ -42,4 +42,18 @@ public class UsersService {
 		return ud.update(user);
 	}
 	
+	
+
+	public Users check(Users u) {
+		Users dbu = ud.findByUsername(u.getUsername());
+		System.out.println("Database hash:  "+dbu.getPassword());
+		if(dbu != null) {
+			String pass = ud.hashPassword(u.getUsername(), u.getPassword());
+			System.out.println("password hashed: "+pass);
+			System.out.println(dbu.getPassword().equals(pass));
+			return (dbu.getPassword().equals(pass) ? dbu:null);
+		}
+		return null;
+	}
+	
 }

@@ -13,6 +13,8 @@ export class Landing extends React.Component {
                 <Link to='/postlist'>Posts</Link>
                 <br/>
                 <Link to='/addpost'>Add New Post</Link>
+                <br/>
+                <Link to='/login'>Login</Link>
             </div>
         )
     }
