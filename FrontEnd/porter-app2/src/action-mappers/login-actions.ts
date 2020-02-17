@@ -1,5 +1,7 @@
 import { apiLogin } from "../remote/project2-client/project2-api"
-// import {authenticateUser} from '../remote/project2-client/project2-api';
+import { useHistory } from "react-router-dom"
+import {history} from "../helpers/history";
+
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN: 'LOGIN_SUCCESSFUL_LOGIN',
@@ -13,9 +15,12 @@ export const updateCurrentUser = (username:string, password:string) => async (di
         dispatch({//this object is called an action
             type:loginTypes.SUCCESSFUL_LOGIN,
             payload:{
-                currentUser:response.body
+                currentUser:response.body,
+                
             }
+            
         })
+    
     }else {
         dispatch({
             type:loginTypes.UNSUCCESSFUL_LOGIN,
