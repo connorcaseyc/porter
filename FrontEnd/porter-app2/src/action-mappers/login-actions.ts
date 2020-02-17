@@ -18,7 +18,7 @@ export const updateCurrentUser = (username:string, password:string) => async (di
                 currentUser:response.body,
                 
             }
-            
+        
         })
     
     }else {

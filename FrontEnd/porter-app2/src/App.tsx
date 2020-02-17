@@ -5,7 +5,7 @@ import { FirstComponent } from './components/first-component/FirstComponent'
 import { SecondComponent } from './components/second-component/SecondComponent';
 import  ClickerComponent  from './components/clicker-component/ClickerContainer';
 import { PropComponent } from './components/prop-component/PropComponent';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import { LifecycleComponent } from './components/lifecycle-component/LifecycleComponent';
 import  ChuckNorrisComponent  from './components/chuck-norris-component/ChuckNorrisContainer';
 import LoginComponent  from './components/login-component/LoginContainer';
@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
         {/* to use react router, there is one base tag all routes must be contained in
       that tag is a component called Router */}
-        <Router >
+        <BrowserRouter >
 
           {/* <NavbarComponent /> */}
           
@@ -57,7 +57,7 @@ const App: React.FC = () => {
             <Route path='/' component={LoginComponent} />
            
           </Switch>
-        </Router>
+        </BrowserRouter>
       </Provider>
 
     </div>

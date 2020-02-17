@@ -7,7 +7,7 @@ import axios from 'axios';
 import {axiosConfig} from '../../remote/axios-config/AxiosConfig';
 import { createBrowserHistory } from 'history';
 // import {authenticateUser} from '../../remote/project2-client/project2-api'
-
+import {history} from "../../helpers/history";
 
 export default interface ILoginState {
     username: string
@@ -30,6 +30,8 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
         }
         //by putting event binding and data binding together, we achieve something called two way data binding
         //this is where the user can update state and if state is updated the user sees the change
+        console.log("Constructor props:  "+ props)
+        
     }
 
     
@@ -56,7 +58,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault();
         this.props.updateCurrentUser(this.state.username,this.state.password);
-
+        console.log("THE PROPS: "+this.props);
     }
 
 
