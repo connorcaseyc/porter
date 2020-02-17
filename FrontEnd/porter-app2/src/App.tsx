@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
         {/* to use react router, there is one base tag all routes must be contained in
       that tag is a component called Router */}
-        <Router >
+        <Router>
 
           {/* <NavbarComponent /> */}
           
