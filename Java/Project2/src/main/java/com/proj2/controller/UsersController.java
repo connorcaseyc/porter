@@ -21,15 +21,10 @@ public class UsersController {
 	
 	private UsersService us;
 	
-<<<<<<< HEAD
-	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", value="/auth.app")
-	public @ResponseBody Users authenticate(@RequestBody Users users){
-		return users != null ? us.check(users) : null;
-=======
+
 	@Autowired
 	public void setUs(UsersService us) {
 		this.us = us;
->>>>>>> 14277a14599463dd5b7a4f4be3638b1ec9bd166d
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/list.app",produces="application/json")

@@ -29,14 +29,10 @@ public class UsersService {
 //	}
 	
 	public Users check(Users u) {
-<<<<<<< HEAD
 		Users dbu = ud.findByUsername(u.getUsername());
 //		System.out.println("Database hash:  "+dbu.getPassword());
 		System.out.println(dbu);
-=======
-		Users dbu = ud.getByUsername(u.getUsername());
 		System.out.println("Database hash:  "+dbu.getPassword());
->>>>>>> 14277a14599463dd5b7a4f4be3638b1ec9bd166d
 		if(dbu != null) {
 			String pass = ud.hashPassword(u.getUsername(), u.getPassword());
 			System.out.println("password hashed: "+pass);

@@ -44,13 +44,10 @@ public class UsersDao {
 		return sesfact.getCurrentSession().createQuery("from Users", Users.class).list();
 	}
 
-	public Users getByUsername(String username) {
+	public Users findByUsername(String username) {
 		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
 				"from Users where username = '"+username+"'").list();
-<<<<<<< HEAD
-		
-=======
->>>>>>> 14277a14599463dd5b7a4f4be3638b1ec9bd166d
+
 		if(list.size()>0) {
 			System.out.println("User Info: "+list.get(0).getUsername());
 			return list.get(0);
@@ -67,12 +64,9 @@ public class UsersDao {
 			String hashText = "";
 			try {
 				MessageDigest md = MessageDigest.getInstance("md5");
-				
-<<<<<<< HEAD
-=======
+
 				// digest() method is called to calculate message digest 
 	         //  of an input digest() return array of byte 
->>>>>>> 14277a14599463dd5b7a4f4be3638b1ec9bd166d
 	         byte[] messageDigest = md.digest(toHash.getBytes()); 
 
 	         BigInteger no = new BigInteger(1, messageDigest); 
