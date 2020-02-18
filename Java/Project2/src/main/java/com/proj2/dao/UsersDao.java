@@ -1,107 +1,88 @@
 package com.proj2.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.proj2.model.Users;
-import com.proj2.util.ConnectionUtil;
 
-public class UsersDao implements DaoBase<Users> {
+@Repository
+@Transactional
+public class UsersDao {
 	
-//	Create
+	@Autowired
+	SessionFactory sesfact;
+	
+	public List<Users> findAll() {
+		return sesfact.getCurrentSession().createQuery("from Users", Users.class).list();
+	}
+
+	public Users insert(Users user) {
+		sesfact.getCurrentSession().save(user);
+		return user;
+	}
+	
+	public Users findByEmail(String email) {
+		return sesfact.getCurrentSession().get(Users.class, email);
+	}
+	
+	public Users findById(int id) {
+		return sesfact.getCurrentSession().get(Users.class, id);
+	}
+	
+//	public Users findByUsername(String username) {
+//		return sesfact.getCurrentSession().get(Users.class, username);
+//	}
+	
+	public Users findByUsername(String username) {		
+		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
+				"from Users where username = '"+username+"'", Users.class).list();
+		if(list.size()>0) {
+			System.out.println(list.get(0).getUsername());
+			return list.get(0);
+		}
+		return null;
+	}
 	
 	
 	
-//	Read
-	public static List<Users> readUserList() {
-		try {
-			Connection conn = ConnectionUtil.connect();
-			String sql = "select * from users";
-			List<Users> userList = new ArrayList<>();
-			Statement s = conn.createStatement();
-			ResultSet rs = s.executeQuery(sql);
-			while(rs.next()) {
-				userList.add(new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+	public Users update(Users user) {
+		sesfact.getCurrentSession().update(user);
+		return user;
+	}
+	
+	public void delete(Users user) {
+		sesfact.getCurrentSession().delete(user);
+	}
+	
+	public String hashPassword(String username, String password) {
+		 String toHash = username + password + "bet";
+			String hashText = "";
+			try {
+				MessageDigest md = MessageDigest.getInstance("md5");
+				
+	         byte[] messageDigest = md.digest(toHash.getBytes()); 
+
+	         BigInteger no = new BigInteger(1, messageDigest); 
+
+	         // Convert message digest into hex value 
+	         hashText = no.toString(16); 
+	         while (hashText.length() < 32) { 
+	             hashText = "0" + hashText; 
+	         }
+			} catch (NoSuchAlgorithmException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			s.close();
-			conn.close();
-			return userList;
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}	
-	
-	public static void printUserList() {
-		List<Users> userList = readUserList();
-		for(int i=0; i<userList.size(); i++) {
-			System.out.println(userList.get(i));
-		}
+			return hashText;
 	}
-
-	@Override
-	public void create(Users t) {
-		try {
-			Connection conn = ConnectionUtil.connect();
-			String sql = "insert into users (firstname, lastname, username, password, email)"
-					+ "values (?,?,?,?,?)";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, t.getFirstname());
-			ps.setString(2, t.getLastname());
-			ps.setString(3, t.getUsername());
-			ps.setString(4, t.getPassword());
-			ps.setString(5, t.getEmail());
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
-	@Override
-	public List<Users> readAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(String s) {
-		// TODO Auto-generated method stub
-		try {
-			Connection conn = ConnectionUtil.connect();
-			String sql = "update users set password where username = ?";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, s);
-			ps.executeUpdate();
-		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
-	@Override
-	public void shadowRealm(String s) {
-		// TODO Auto-generated method stub
-		try {
-			Connection conn = ConnectionUtil.connect();
-			String sql = "delete from users where username = ?";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, s);
-			ps.executeUpdate();
-		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	
 }
