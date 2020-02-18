@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const UserTable:React.FC<any> = (props:any) => {
     const [userList, setUserList] = useState([]);
     useEffect(() => {
-        getUserList().then(r=>setUserList(r.data));
+        getUserList().then((r: { data: React.SetStateAction<never[]>; })=>setUserList(r.data));
     }, [userList.length]);
 
     return (

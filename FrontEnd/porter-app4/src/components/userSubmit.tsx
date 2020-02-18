@@ -19,7 +19,7 @@ export const UserSubmit:React.FC<any> = (props:any) => {
                 username:username,
                 password:password,
                 email:email
-            }).then(r=>console.log(r.data))}>
+            }).then((r: { data: any; })=>console.log(r.data))}>
                 
                 <Input type="text" placeholder="Firstname" onChange={val=>setFirstname(val.target.value)}/>
                 <Input type="text" placeholder="Lastname" onChange={val=>setLastname(val.target.value)}/>

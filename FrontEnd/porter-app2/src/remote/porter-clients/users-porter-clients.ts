@@ -1,5 +1,5 @@
-import { axiosConfig } from '../utilities/axiosConfig';
-import ILoginState from '../components/Login/LoginComponent';
+import {axiosConfig} from './axiosConfig';
+
 
 export const apiLogin = async (username: string, password: string) => {
 
@@ -10,15 +10,12 @@ export const apiLogin = async (username: string, password: string) => {
       
         })
         if (response.status === 200) {
-            const body = await response.data;
-            console.log(body);
-            sessionStorage.setItem("user", body);
+            const body = await response.data
+            console.log(body)
             return {
                 body,
                 loginMessage: 'Successful Login'
-            
             }
-           
         } else if (response.status === 401) {
             return {
                 loginMessage: "Incorrect Username or Password",

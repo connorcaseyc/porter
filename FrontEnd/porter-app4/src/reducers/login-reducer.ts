@@ -1,6 +1,7 @@
 import { IUserState } from ".";
 import { loginTypes } from '../action-mappers/login-actions';
 import { history } from '../history/history';
+import { Redirect } from "react-router";
 
 const initialState:IUserState = {
     currentUser:null,
@@ -15,7 +16,8 @@ export const loginReducer = (state = initialState, action:any) => {
             return {//we always return the new state, which means, spread the old state
                 ...state,
                 currentUser:action.payload.currentUser,
-                loginMessage: 'You have Logged in'
+                loginMessage: 'You have Logged in',
+                
             }
         }
         case loginTypes.UNSUCCESSFUL_LOGIN: {

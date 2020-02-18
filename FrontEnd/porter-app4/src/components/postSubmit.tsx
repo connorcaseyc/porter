@@ -17,7 +17,7 @@ export const PostSubmit:React.FC<any> = (props:any) => {
                 timesubmit: "", 
                 user_posts: null
 
-            }).then(r=>console.log(r.data))}>
+            }).then((r: { data: any; })=>console.log(r.data))}>
 
                 <Input required type="textarea" placeholder="Post Body" onChange={val=>setTextpost(val.target.value)}/>
                 <Input type="image" placeholder="Photo" onChange={val=>setPhotopost(val.target.value)}/>

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const PostTable:React.FC<any> = (props:any) => {
     const [postList, setPostList] = useState([]);
     useEffect(() => {
-        getPostList().then(r=>setPostList(r.data));
+        getPostList().then((r: { data: React.SetStateAction<never[]>; })=>setPostList(r.data));
     }, [postList.length]);
 
     sessionStorage.removeItem("user");

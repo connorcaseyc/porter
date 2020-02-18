@@ -43,9 +43,10 @@ public class UsersDao {
 	
 	public Users findByUsername(String username) {		
 		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
-				"from Users where username = '"+username+"'", Users.class).list();
+				"from Users where username = '"+username+"'").list();
+		
 		if(list.size()>0) {
-			System.out.println(list.get(0).getUsername());
+			System.out.println("User Info: "+list.get(0).getUsername());
 			return list.get(0);
 		}
 		return null;

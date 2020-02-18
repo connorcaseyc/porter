@@ -27,7 +27,7 @@ public class UsersController {
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", value="/auth.app")
 	public @ResponseBody Users authenticate(@RequestBody Users users){
-		return users != null ? us.check(users) : users;
+		return users != null ? us.check(users) : null;
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/userlist.app",
