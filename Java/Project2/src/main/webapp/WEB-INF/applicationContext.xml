@@ -29,8 +29,6 @@
 	 
 	<context:component-scan base-package="com.proj2" />
 	
-	
-	
 	<bean id="datasource" 
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			
@@ -50,12 +48,10 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">none</prop>
-				<prop key="hibernate.default_schema">porter2</prop>
+				<prop key="hibernate.default_schema">hibernate</prop>
 			</props>
 		</property>
 	</bean>
-	
-	
 	
 	<!-- 
 		This will manage all of our transactions

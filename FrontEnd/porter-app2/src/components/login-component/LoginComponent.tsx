@@ -1,8 +1,15 @@
 import React, { SyntheticEvent } from 'react';
-import { Form, Label, Col, Input, FormGroup, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Form, Label, Col, Input, FormGroup, Button,TabContent, TabPane, Nav,
+     NavItem, NavLink, Card, CardTitle, CardText, Row } from 'reactstrap';
+import { Link, Redirect } from 'react-router-dom';
+import classnames from 'classnames';
+import axios from 'axios';
+import {axiosConfig} from '../../remote/axios-config/AxiosConfig';
+import { createBrowserHistory } from 'history';
+// import {authenticateUser} from '../../remote/project2-client/project2-api'
+import {history} from "../../helpers/history";
 
-interface ILoginState {
+export default interface ILoginState {
     username: string
     password: string
     
@@ -23,7 +30,10 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
         }
         //by putting event binding and data binding together, we achieve something called two way data binding
         //this is where the user can update state and if state is updated the user sees the change
+        console.log("Constructor props:  "+ props)
+        
     }
+
     
     //this is an example of event binding
     //we take an event created by a user, and use it to update data in our state
@@ -46,11 +56,16 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
 
 
     submitLogin = async (event: SyntheticEvent) => {
-        event.preventDefault()
-        this.props.updateCurrentUser(this.state.username,this.state.password)
+        event.preventDefault();
+        this.props.updateCurrentUser(this.state.username,this.state.password);
+        if(sessionStorage.getItem("user")){
+            return <Redirect to ="/pokemon"/>
+        }
     }
 
+
     render() {
+   
         return (
             <div id="landingpage">
 
@@ -78,14 +93,16 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                                 placeholder="Password"
                                 value={this.state.password}
                                 onChange={this.updatePassword} />
-                            <Button id="loginbtn">Login</Button>
+                            <Button id="loginbtn">Login
+                            <Link to ="/pokemon"/></Button>
                         </Form>
-                        <Button id="forgotpwbtn" color="link">Forgot Password?</Button>
+                        <Link to ="/ForgottenPassword">Forgot Password?</Link>
                         <p>{this.props.loginMessage}</p>
                         <br/>
                         <br/>
                         <br/>
-                        <Link to='/pokemon'>View Feed</Link>
+                        <p><Link to='/pokemon'>View Feed</Link></p>
+                        <Link to='/signup'>Register for account</Link>
                     </div>
                 </div>
 
@@ -94,6 +111,6 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                 </div>
                 
             </div>
-        )
+        );
     }
 }

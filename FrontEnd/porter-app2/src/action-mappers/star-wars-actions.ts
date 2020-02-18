@@ -1,4 +1,4 @@
-import { getPageStarWarsPeople } from "../remote/star-wars-clients/star-wars-people-client"
+import { getPageStarWarsPeople } from "../remote/star-wars-clients.ts/star-wars-people-client"
 
 export const starWarsTypes = {
     NEW_PAGE_STAR_WARS_CHARACTERS: 'STARWARS_NEW_PAGE_STAR_WARS_CHARACTERS',
