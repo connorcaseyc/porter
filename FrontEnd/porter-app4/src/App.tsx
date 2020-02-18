@@ -10,7 +10,6 @@ import PostSubmit from './components/postSubmit';
 import LoginComponent from './components/Login/LoginContainer';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-import { history } from './history/history';
 
 const App: React.FC = () => {
 

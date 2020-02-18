@@ -1,5 +1,5 @@
-import React, { useEffect, useState, SyntheticEvent } from 'react';
-import { Table, Button } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { Table } from 'reactstrap';
 import { getPostList } from '../utilities/api';
 import IPost from '../model/IPost';
 import { PostRow } from './PostRow';
