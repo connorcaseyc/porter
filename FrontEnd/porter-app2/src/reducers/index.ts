@@ -14,7 +14,6 @@ export interface ITicTacToeState {
 
 // describe the data we want from the login component
 export interface IUserState {
-    isLoggedIn: boolean
     currentUser:any
     loginMessage:string
 }

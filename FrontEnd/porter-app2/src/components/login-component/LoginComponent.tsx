@@ -5,7 +5,6 @@ import { Link, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import axios from 'axios';
 import {axiosConfig} from '../../remote/axios-config/AxiosConfig';
-import { createBrowserHistory } from 'history';
 // import {authenticateUser} from '../../remote/project2-client/project2-api'
 import {history} from "../../helpers/history";
 
@@ -93,8 +92,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                                 placeholder="Password"
                                 value={this.state.password}
                                 onChange={this.updatePassword} />
-                            <Button id="loginbtn">Login
-                            <Link to ="/pokemon"/></Button>
+                            <Button id="loginbtn">Login</Button>
                         </Form>
                         <Link to ="/ForgottenPassword">Forgot Password?</Link>
                         <p>{this.props.loginMessage}</p>
