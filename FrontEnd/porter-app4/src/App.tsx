@@ -13,7 +13,7 @@ import ForgottenPasswordComponent from './components/forgotten-password-componen
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import { history } from './history/history';
-
+import {NavbarComponent} from './components/NavbarComponent';
 const isLoggedIn = () => sessionStorage.getItem("user");
 
 const App: React.FC = () => {
@@ -21,8 +21,8 @@ const App: React.FC = () => {
     return (
         <div>
             <Provider store={store}>
-
                 <Router history={history}>
+
                     <div>
 
                         <Switch>

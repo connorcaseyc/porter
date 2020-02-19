@@ -29,8 +29,9 @@ export class ForgottenPasswordComponent extends React.Component<any, IForgottenP
     }
 
     submitEmail = async (event:SyntheticEvent) =>{
+        console.log("thingy me booper");
         event.preventDefault();
-        // this.onSucceed();
+        
         this.props.submitEmail(this.state.email);
     }
     // It Works But Page is Refreshing right now Redux will probably fix this
