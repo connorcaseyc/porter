@@ -41,7 +41,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault();
         this.props.updateCurrentUser(this.state.username,this.state.password);
-        history.push('/postlist');
+        // history.push('/postlist');
     }
 
     render() {
@@ -74,7 +74,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                                 onChange={this.updatePassword} />
                             <Button id="loginbtn">Login</Button>
                         </Form>
-                        <Link to ="/ForgottenPassword">Forgot Password?</Link>
+                        <Link to ="/forgot">Forgot Password?</Link>
                         <p>{this.props.loginMessage}</p>
                         <br/>
                         <br/>
