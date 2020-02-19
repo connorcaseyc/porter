@@ -15,6 +15,8 @@ export class Landing extends React.Component {
                 <Link to='/addpost'>Add New Post</Link>
                 <br/>
                 <Link to='/login'>Login</Link>
+                <br/>
+                <Link to='/profile'>profile test</Link>
             </div>
         )
     }

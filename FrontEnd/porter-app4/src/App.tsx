@@ -10,10 +10,11 @@ import { PostTable } from './components/postTable';
 import PostSubmit from './components/postSubmit';
 import LoginComponent from './components/Login/LoginContainer';
 import ForgottenPasswordComponent from './components/forgotten-password-component/ForgottenPasswordContainer';
+import ProfileComponent from './components/profile-component/ProfileContainer';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import { history } from './history/history';
-import {NavbarComponent} from './components/NavbarComponent';
+
 const isLoggedIn = () => sessionStorage.getItem("user");
 
 const App: React.FC = () => {
@@ -32,6 +33,7 @@ const App: React.FC = () => {
                             <Route path="/addpost" component={PostSubmit}/>
                             <Route path="/login" component={LoginComponent}/>
                             <Route path="/forgot" component={ForgottenPasswordComponent}/>
+                            <Route path="/profile" component={ProfileComponent}/>
                             <Route path="/" component={Landing}/>
                         </Switch>
                     
