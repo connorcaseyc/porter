@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="users")
 public class Users {
@@ -42,12 +45,15 @@ public class Users {
 	@Column(name = "profpic")
 	private String profpic;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user_posts", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Posts> user_posts;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "comment_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Comments> comment_author;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "like_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Likes> like_author;
 	

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { loginReducer } from './login-reducer';
+import { IUser } from '../model/IUser';
 
 export interface IUserState {
-    currentUser:any
-    loginMessage:string
+    currentUser: IUser,
+    loginMessage: string
 }
 
 export interface IState {

@@ -1,6 +1,5 @@
 import { apiLogin } from '../remote/project2api';
 import { history } from '../history/history';
-import { IUser } from '../model/IUser';
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN: 'LOGIN_SUCCESSFUL_LOGIN',

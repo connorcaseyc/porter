@@ -1,7 +1,6 @@
 package com.proj2.model;
 
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Set;
 
@@ -18,9 +17,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.proj2.model.Comments;
-import com.proj2.model.Likes;
-import com.proj2.model.Users;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="posts")
@@ -41,12 +40,14 @@ public class Posts {
 	@CreationTimestamp
 	private Timestamp timesubmit;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "post_likes", fetch = FetchType.EAGER)
 	private Set<Likes> post_likes;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "post_comments", fetch = FetchType.EAGER)
 	private Set<Comments> post_comments;
-
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_posts")
 	private Users user_posts;

@@ -1,10 +1,16 @@
 import { IUserState } from ".";
 import { loginTypes } from '../action-mappers/login-actions';
-import { history } from '../history/history';
 
 const initialState:IUserState = {
-    currentUser:null,
-    loginMessage:''
+    currentUser: {
+        id: 0,
+        firstname: '',
+        lastname: '',
+        username: '',
+        password: '',
+        email: ''
+    }, 
+    loginMessage: ''
 }
 
 export const loginReducer = (state = initialState, action:any) => {

@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom';
 import { history } from '../../history/history';
 
 export default interface ILoginState {
-    username: string
-    password: string
+    id: number,
+    firstname: string,
+    lastname: string,
+    username: string,
+    password: string,
+    email: string
 }
 
 interface ILoginProps {
@@ -17,8 +21,12 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     constructor(props: any) {
         super(props)
         this.state = {
+            id: 0,
+            firstname: '',
+            lastname: '',
             username: '',
             password: '',
+            email: ''
         }
     }
 
@@ -37,6 +45,36 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
             password: event.target.value
         })
     }
+
+    // updateId = (event:any) => {
+    //     this.setState({
+    //         ...this.state,
+    //         id: event.target.value
+    //     })
+    // }
+
+    // updateFirstname = (event:any) => {
+    //     this.setState({
+    //         ...this.state,
+    //         firstname: event.target.value
+    //     })
+    // }
+
+    // updateLastname = (event:any) => {
+    //     this.setState({
+    //         ...this.state,
+    //         lastname: event.target.value
+    //     })
+    // }
+
+    // updateEmail = (event:any) => {
+    //     this.setState({
+    //         ...this.state,
+    //         email: event.target.value
+    //     })
+    // }
+
+
 
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault();

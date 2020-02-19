@@ -7,15 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.proj2.model.Posts;
 import com.proj2.model.Users;
 import com.proj2.service.PostsService;
+import com.proj2.service.UsersService;
 
 @Controller
 @CrossOrigin(origins = {"http://localhost:3000"})
@@ -24,6 +23,7 @@ public class PostsController {
 	
 	@Autowired 
 	PostsService ps;
+//	UsersService us;
 	
 	@RequestMapping(method=RequestMethod.GET, value="/postlist.app",
 			produces="application/json")
