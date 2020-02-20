@@ -15,7 +15,7 @@ export const updateCurrentUser = (username:string, password:string) => async (di
             payload:{
                 currentUser:response.body
             }
-        })
+        });
         history.push('/postlist');
         
     } else {

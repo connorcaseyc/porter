@@ -12,7 +12,6 @@ export const apiLogin = async (username: string, password: string) => {
         if (response.status === 200) {
             const body = await response.data;
             console.log(body);
-            sessionStorage.setItem("user", body);
             return {
                 body,
                 loginMessage: 'Successful Login'

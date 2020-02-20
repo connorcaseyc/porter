@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 import { loginReducer } from './login-reducer';
 
+// Interfaces below describe the data we want from the components
 export interface IUserState {
     currentUser:any
     loginMessage:string
 }
 
+
+// This interface contains subinterfaces that represent different parts of state
 export interface IState {
     userState:IUserState 
 }

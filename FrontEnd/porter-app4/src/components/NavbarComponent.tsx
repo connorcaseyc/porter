@@ -25,7 +25,7 @@ export const NavbarComponent = (props:any) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const logout = () =>{
-    sessionStorage.removeItem("user");
+    localStorage.clear();
     history.push("/login");
    }
   return (
@@ -36,7 +36,7 @@ export const NavbarComponent = (props:any) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-          <Button onClick={logout}>logout</Button>
+        
             <NavItem>
               <NavLink href="https://Twitter.com">Twitter</NavLink>
             </NavItem>
@@ -46,20 +46,9 @@ export const NavbarComponent = (props:any) => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <Link to='/chucknorris'>ChuckNorris</Link>
+                  <Link to='/profile'>Your Profile</Link>
                 </DropdownItem>
-                <DropdownItem>
-                  <Link to='/pokemon'>Pokemon</Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to='/clicker'>Clicker</Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to='/starwars'>StarWars</Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to='/tic-tac-toe'>Tic-Tac-Toe</Link>
-                </DropdownItem>
+           
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
@@ -67,6 +56,7 @@ export const NavbarComponent = (props:any) => {
               <Input type="text" name="username" placeholder="search users..."/>
           </Form>
           <NavbarText> Find Your Friends</NavbarText>
+          <Button onClick={logout}>logout</Button>
         </Collapse>
       </Navbar>
     </div>

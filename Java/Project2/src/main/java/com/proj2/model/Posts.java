@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.proj2.model.Comments;
 import com.proj2.model.Likes;
 import com.proj2.model.Users;
@@ -41,12 +42,15 @@ public class Posts {
 	@CreationTimestamp
 	private Timestamp timesubmit;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "post_likes", fetch = FetchType.EAGER)
 	private Set<Likes> post_likes;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "post_comments", fetch = FetchType.EAGER)
 	private Set<Comments> post_comments;
 
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_posts")
 	private Users user_posts;
