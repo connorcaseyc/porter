@@ -79,11 +79,10 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault();
         this.props.updateCurrentUser(this.state.username,this.state.password);
-        history.push('/postlist');
+        history.push('/postfeed');
     }
 
     render() {
-   
         return (
             <div id="landingpage">
 

@@ -1,5 +1,4 @@
 import { apiLogin } from '../remote/project2api';
-import { history } from '../history/history';
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN: 'LOGIN_SUCCESSFUL_LOGIN',
@@ -11,12 +10,10 @@ export const updateCurrentUser = (username:string, password:string) => async (di
     if(response.body){
         dispatch({
             type:loginTypes.SUCCESSFUL_LOGIN,
-            payload:{
+            payload: {
                 currentUser:response.body
             }
         })
-        history.push('/postlist');
-        
     } else {
         dispatch({
             type:loginTypes.UNSUCCESSFUL_LOGIN,

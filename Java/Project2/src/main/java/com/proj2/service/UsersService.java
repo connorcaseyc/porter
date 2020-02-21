@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proj2.dao.UsersDao;
+import com.proj2.model.Posts;
 import com.proj2.model.Users;
 
 @Service
@@ -42,7 +43,9 @@ public class UsersService {
 		return ud.update(user);
 	}
 	
-	
+	public Users grabUserPosts(String username) {
+		return ud.grabUsersPosts(username);
+	}
 
 	public Users check(Users u) {
 		Users dbu = ud.findByUsername(u.getUsername());
@@ -54,6 +57,11 @@ public class UsersService {
 			return (dbu.getPassword().equals(pass) ? dbu:null);
 		}
 		return null;
+	}
+	
+	public Users checkProfile(Users u) {
+		Users dbu2 = ud.findByUsername(u.getUsername());
+		return dbu2;
 	}
 	
 }

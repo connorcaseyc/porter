@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.proj2.model.Posts;
 import com.proj2.model.Users;
 
 @Repository
@@ -51,7 +52,15 @@ public class UsersDao {
 		return null;
 	}
 	
-	
+	public Users grabUsersPosts(String username) {
+		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
+				"from Users where username = '"+username+"'", Users.class).list();
+		if(list.size()>0) {
+			System.out.println(list.get(0).getUsername());
+			return list.get(0);
+		}
+		return null;
+	}
 	
 	public Users update(Users user) {
 		sesfact.getCurrentSession().update(user);

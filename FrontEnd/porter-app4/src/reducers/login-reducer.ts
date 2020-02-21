@@ -8,7 +8,8 @@ const initialState:IUserState = {
         lastname: '',
         username: '',
         password: '',
-        email: ''
+        email: '',
+        user_posts: []
     }, 
     loginMessage: ''
 }
@@ -30,7 +31,6 @@ export const loginReducer = (state = initialState, action:any) => {
                 loginMessage:action.payload.loginMessage
             }
         } 
-    
         default:
             return state;
     }

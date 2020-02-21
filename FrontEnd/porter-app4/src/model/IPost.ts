@@ -5,5 +5,6 @@ export default interface IPost {
     textpost: string;
     photopost: string;
     timesubmit: string;
+    likenumber: number;
     user_posts: IUser;
 }

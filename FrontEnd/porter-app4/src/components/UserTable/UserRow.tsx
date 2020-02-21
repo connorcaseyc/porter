@@ -1,5 +1,5 @@
 import React from 'react';
-import { IUser } from '../model/IUser';
+import { IUser } from '../../model/IUser';
 
 export interface IUR {
     user: IUser

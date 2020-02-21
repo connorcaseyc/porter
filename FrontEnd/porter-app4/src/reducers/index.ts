@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { loginReducer } from './login-reducer';
+import { profileReducer } from './profile-reducer';
 import { IUser } from '../model/IUser';
 
 export interface IUserState {
@@ -7,10 +8,17 @@ export interface IUserState {
     loginMessage: string
 }
 
+export interface IProfileState {
+    currentProfile: IUser,
+    profileMessage: string
+}
+
 export interface IState {
-    userState:IUserState 
+    userState:IUserState,
+    profileState:IProfileState
 }
 
 export const state = combineReducers<IState>({
-    userState:loginReducer
+    userState:loginReducer,
+    profileState:profileReducer
 })

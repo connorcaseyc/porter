@@ -4,5 +4,6 @@ export interface IUser {
     lastname: string,
     username: string,
     password: string,
-    email: string
+    email: string,
+    user_posts: any[]
 }

@@ -1,5 +1,6 @@
 package com.proj2.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -47,15 +48,15 @@ public class Users {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user_posts", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<Posts> user_posts;
+	private List<Posts> user_posts;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "comment_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<Comments> comment_author;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "like_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<Likes> like_author;
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "comment_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private List<Comments> comment_author;
+//	
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "like_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private List<Likes> like_author;
 	
 	public int getU_id() {
 		return u_id;
@@ -121,29 +122,29 @@ public class Users {
 		this.profpic = profpic;
 	}
 
-	public Set<Posts> getUser_posts() {
+	public List<Posts> getUser_posts() {
 		return user_posts;
 	}
 
-	public void setUser_posts(Set<Posts> user_posts) {
+	public void setUser_posts(List<Posts> user_posts) {
 		this.user_posts = user_posts;
 	}
 
-	public Set<Comments> getComment_author() {
-		return comment_author;
-	}
-
-	public void setComment_author(Set<Comments> comment_author) {
-		this.comment_author = comment_author;
-	}
-
-	public Set<Likes> getLike_author() {
-		return like_author;
-	}
-
-	public void setLike_author(Set<Likes> like_author) {
-		this.like_author = like_author;
-	}
+//	public List<Comments> getComment_author() {
+//		return comment_author;
+//	}
+//
+//	public void setComment_author(List<Comments> comment_author) {
+//		this.comment_author = comment_author;
+//	}
+//
+//	public List<Likes> getLike_author() {
+//		return like_author;
+//	}
+//
+//	public void setLike_author(List<Likes> like_author) {
+//		this.like_author = like_author;
+//	}
 
 	@Override
 	public String toString() {

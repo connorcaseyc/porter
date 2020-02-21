@@ -2,6 +2,7 @@ package com.proj2.model;
 
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -40,13 +41,16 @@ public class Posts {
 	@CreationTimestamp
 	private Timestamp timesubmit;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "post_likes", fetch = FetchType.EAGER)
-	private Set<Likes> post_likes;
+	@Column(name="likenumber")
+	private int likenumber;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "post_comments", fetch = FetchType.EAGER)
-	private Set<Comments> post_comments;
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "post_likes", fetch = FetchType.EAGER)
+//	private List<Likes> post_likes;
+//	
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "post_comments", fetch = FetchType.EAGER)
+//	private List<Comments> post_comments;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_posts")
@@ -76,21 +80,21 @@ public class Posts {
 		this.photopost = photopost;
 	}
 
-	public Set<Likes> getPost_likes() {
-		return post_likes;
-	}
-
-	public void setPost_likes(Set<Likes> post_likes) {
-		this.post_likes = post_likes;
-	}
-
-	public Set<Comments> getPost_comments() {
-		return post_comments;
-	}
-
-	public void setPost_comments(Set<Comments> post_comments) {
-		this.post_comments = post_comments;
-	}
+//	public List<Likes> getPost_likes() {
+//		return post_likes;
+//	}
+//
+//	public void setPost_likes(List<Likes> post_likes) {
+//		this.post_likes = post_likes;
+//	}
+//
+//	public List<Comments> getPost_comments() {
+//		return post_comments;
+//	}
+//
+//	public void setPost_comments(List<Comments> post_comments) {
+//		this.post_comments = post_comments;
+//	}
 
 	public Users getUser_posts() {
 		return user_posts;
@@ -108,9 +112,18 @@ public class Posts {
 		this.timesubmit = timesubmit;
 	}
 
+	public int getLikenumber() {
+		return likenumber;
+	}
+
+	public void setLikenumber(int likenumber) {
+		this.likenumber = likenumber;
+	}
+
 	@Override
 	public String toString() {
-		return "Posts [content_id=" + content_id + ", textpost=" + textpost + ", photopost=" + photopost + "]";
+		return "Posts [content_id=" + content_id + ", textpost=" + textpost + ", photopost=" + photopost
+				+ ", timesubmit=" + timesubmit + ", likenumber=" + likenumber + "]";
 	}
 
 	public Posts() {}

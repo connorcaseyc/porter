@@ -57,5 +57,12 @@ public class PostsController {
 		ps.updatePost(post);
 		return new ResponseEntity<>(post, HttpStatus.ACCEPTED);
 	}
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/updatepostlike.app", 
+			produces="application/json")
+	public ResponseEntity<Posts> updatePostLike(@RequestBody Posts post) {
+		ps.addLike(post);
+		return new ResponseEntity<>(post, HttpStatus.ACCEPTED);
+	}
 
 }

@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from 'react';
 import { Input, Form } from 'reactstrap';
 import { publishPost } from '../../utilities/api';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { history } from '../../history/history';
 
 interface IPostSubmitProps {
@@ -34,14 +34,12 @@ export class PostSubmit extends React.Component<IPostSubmitProps, ITextpostState
             textpost:this.state.textpost,
             photopost: '',
             timesubmit: '', 
+            likenumber: 0,
             user_posts: this.props.user
         });
-        history.push('/postlist');
-        // this.updateTextpost(this.state.textpost);
-        
+        history.push('/postfeed');
     }
 
-    // const [textpost, setTextpost] = useState("");
     render() {
         return (
             <div>
@@ -60,33 +58,10 @@ export class PostSubmit extends React.Component<IPostSubmitProps, ITextpostState
                 </Form>
 
                 <Link to='/'>Landing</Link>
-                <Link to='/postlist'>Posts</Link>
+                <Link to='/postfeed'>Posts</Link>
 
             </div>
         )
     }
 }
 export default PostSubmit;
-
-
-
-// <div>
-//                 <Form onSubmit={()=>publishPost({
-//                     id:0,
-//                     textpost,
-//                     photopost,
-//                     timesubmit: "", 
-//                     user_posts: props.user
-
-//                 }).then(r=>console.log(r.data))}>
-
-//                     <Input required type="textarea" placeholder="Post Body" onChange={val=>setTextpost(val.target.value)}/>
-//                     <Input type="image" placeholder="Photo" onChange={val=>setPhotopost(val.target.value)}/>
-//                     <Input type="submit" value="Submit"/>
-
-//                 </Form>
-
-//                 <Link to='/'>Landing</Link>
-//                 <Link to='/postlist'>Posts</Link>
-
-//             </div>

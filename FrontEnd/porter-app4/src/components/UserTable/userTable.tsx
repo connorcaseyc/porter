@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'reactstrap';
-import { getUserList } from '../utilities/api';
-import { IUser } from '../model/IUser';
+import { getUserList } from '../../utilities/api';
+import { IUser } from '../../model/IUser';
 import { UserRow } from './UserRow';
 import { Link } from 'react-router-dom';
 

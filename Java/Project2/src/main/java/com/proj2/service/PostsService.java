@@ -34,5 +34,9 @@ public class PostsService {
 	public void deletePost(Posts post) {
 		pd.delete(post);
 	}
+	
+	public void addLike(Posts post) {
+		pd.addLike(post);
+	}
 
 }

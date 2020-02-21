@@ -7,7 +7,6 @@ export const apiLogin = async (username: string, password: string) => {
         const response = await axiosConfig.post('auth.app', {
             username,
             password
-      
         })
         if (response.status === 200) {
             const body = await response.data
@@ -31,6 +30,39 @@ export const apiLogin = async (username: string, password: string) => {
         console.log(e);
         return {
             loginMessage: "Something Went Wrong",
+
+        }
+    }
+}
+
+export const apiProfile = async (username: string) => {
+
+    try {
+        const profresponse = await axiosConfig.post('usernameposts.app', {
+            username
+        })
+        if (profresponse.status === 200) {
+            const profbody = await profresponse.data
+            console.log(profbody)
+            return {
+                profbody,
+                profileMessage: 'Successful Profile'
+            }
+        } else if (profresponse.status === 401) {
+            return {
+                profileMessage: "Incorrect Username or Password",
+                profbody: null
+            }
+        } else {
+            return {
+                profileMessage: "Something Went Wrong",
+                profbody: null
+            }
+        }
+    } catch (e) {
+        console.log(e);
+        return {
+            profileMessage: "Something Went Wrong",
 
         }
     }

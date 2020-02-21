@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.proj2.model.Posts;
 import com.proj2.model.Users;
 import com.proj2.service.UsersService;
 
@@ -29,6 +30,13 @@ public class UsersController {
 	public @ResponseBody Users authenticate(@RequestBody Users users){
 		return users != null ? us.check(users) : users;
 	}
+	
+	@RequestMapping(method=RequestMethod.POST, consumes="application/json", value="/usernameposts.app")
+	public @ResponseBody Users authProfile(@RequestBody Users users) {
+		return users != null ? us.checkProfile(users) : users;
+	}
+	
+	
 	
 	@RequestMapping(method=RequestMethod.GET, value="/userlist.app",
 			produces="application/json")
@@ -53,10 +61,46 @@ public class UsersController {
 		return us.getById(id);
 	}
 	
-	@GetMapping("{username}/username.app")
-	public @ResponseBody Users getByUsername(@PathVariable("username") String username) {
-		return us.getByUsername(username);
-	}
+//	@GetMapping("{username}/username.app")
+//	public @ResponseBody Users getByUsername(@PathVariable("username") String username) {
+//		return us.getByUsername(username);
+//	}
+	
+//	@GetMapping("{username}.app")
+//	public @ResponseBody List<Posts> getPostsByUsername(@PathVariable("username") String username) {
+//		return us.grabUserPosts(username);
+//	}
+
+	
+	
+	
+	
+	
+	
+//	
+//	@RequestMapping(method=RequestMethod.POST, value="/usernameposts.app", 
+//			consumes="application/json")
+//	public @ResponseBody Users getPostsByUsername(@RequestBody String username) {
+//		System.out.println(username);
+//		return us.grabUserPosts(username);
+//	}
+//	
+	
+	
+//	@RequestMapping(method=RequestMethod.POST, consumes="application/json", value="/usernameposts.app")
+//	public @ResponseBody Users getPostsByUsername(@RequestBody String username) {
+//		return us.grabUserPosts(username);
+//	}
+//	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/deleteuser.app", 
 			produces="application/json")
@@ -71,5 +115,11 @@ public class UsersController {
 		us.updateUser(user);
 		return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
 	}
+	
+//	@RequestMapping(method=RequestMethod.POST, value="/grabuserposts.app", 
+//			produces="application/json")
+//	public ResponseEntity<List<Posts>> userPosts(@RequestBody String username) {
+//		return new ResponseEntity<>(us.grabUserPosts(username), HttpStatus.ACCEPTED);
+//	}
 
 }

@@ -10,11 +10,13 @@ export class Landing extends React.Component {
                 <br/>
                 <Link to='/adduser'>Add New User</Link>
                 <br/>
-                <Link to='/postlist'>Posts</Link>
+                <Link to='/postfeed'>Posts</Link>
                 <br/>
                 <Link to='/addpost'>Add New Post</Link>
                 <br/>
                 <Link to='/login'>Login</Link>
+                <br/>
+                <Link to='search'>Search</Link>
             </div>
         )
     }

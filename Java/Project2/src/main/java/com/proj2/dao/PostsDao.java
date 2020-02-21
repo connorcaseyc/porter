@@ -44,5 +44,13 @@ public class PostsDao {
 	public void delete(Posts p) {
 		sesfact.getCurrentSession().delete(p);
 	}
+	
+	public void addLike(Posts p) {
+		int num = p.getLikenumber();
+		num += 1;
+		p.setLikenumber(num);
+		sesfact.getCurrentSession().update(p);
+		
+	}
 
 }

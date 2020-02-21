@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'reactstrap';
-import { getPostList } from '../utilities/api';
-import IPost from '../model/IPost';
-import { PostRow } from './PostRow';
+import { Table, Card } from 'reactstrap';
+import { getPostList } from '../../utilities/api';
+import IPost from '../../model/IPost';
+import { PostRow, PostCard } from './PostRow';
 import { Link } from 'react-router-dom';
 
 export const PostTable:React.FC<any> = (props:any) => {
@@ -25,6 +25,11 @@ export const PostTable:React.FC<any> = (props:any) => {
             </Table>
             <Link to='/'>Landing</Link>
             <Link to='/addpost'>Add New Post</Link>
+       
+            <Card>
+                {postList.map((r:IPost) => <PostCard post={r}/>)}
+            </Card>
+           
         </div>
     )
 }
