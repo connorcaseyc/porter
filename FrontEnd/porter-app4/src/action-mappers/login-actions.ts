@@ -1,4 +1,4 @@
-import { apiLogin } from '../remote/project2api';
+import { apiLogin } from '../utilities/api';
 import { history } from '../history/history';
 import { Redirect } from 'react-router';
 
@@ -8,7 +8,7 @@ export const loginTypes = {
 }
 
 export const updateCurrentUser = (username:string, password:string) => async (dispatch:any) => {
-    let response:any = await apiLogin(username,password)
+    let response:any = await apiLogin(username,password);
     if(response.body){
         dispatch({
             type:loginTypes.SUCCESSFUL_LOGIN,

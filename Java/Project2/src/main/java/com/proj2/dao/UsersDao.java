@@ -29,9 +29,9 @@ public class UsersDao {
 		return user;
 	}
 	
-	public Users findByEmail(String email) {
-		return sesfact.getCurrentSession().get(Users.class, email);
-	}
+//	public Users findByEmail(String email) {
+//		return sesfact.getCurrentSession().get(Users.class, email);
+//	}
 	
 	public Users findById(int id) {
 		return sesfact.getCurrentSession().get(Users.class, id);
@@ -51,7 +51,15 @@ public class UsersDao {
 		return null;
 	}
 	
-	
+	public Users findByEmail(String email) {
+		List<Users> tList = (List<Users>) sesfact.getCurrentSession().createQuery(
+				"from Users where email = '"+email+"'", Users.class).list();
+		if(tList.size()>0) {
+			System.out.println(tList.get(0).getEmail());
+			return tList.get(0);
+		}
+		return null;
+	}
 	
 	public Users update(Users user) {
 		sesfact.getCurrentSession().update(user);

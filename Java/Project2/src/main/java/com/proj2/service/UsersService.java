@@ -42,6 +42,16 @@ public class UsersService {
 		return ud.update(user);
 	}
 	
+	public Users changePassword(Users u) {
+		Users cup = ud.findByEmail(u.getEmail());
+		if(cup !=null) {
+			System.out.println("User info: "+cup);
+			cup.setPassword(u.getPassword());
+			System.out.println("Updated User Info: " + cup);
+			return ud.update(cup);
+		}
+		return null;
+	}
 	
 
 	public Users check(Users u) {

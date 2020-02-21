@@ -1,6 +1,6 @@
+import {history} from '../history/history'
 
+const initialState:any ={
 
-// const initialState:IProfileState ={
-
-// }
+}
 // export const profileReducer = (state =initialState )

@@ -3,7 +3,7 @@ import { Form, Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { history } from '../../history/history';
 
-export default interface ILoginState {
+interface ILoginState {
     username: string
     password: string
 }
@@ -81,7 +81,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                         <br/>
                         <Link to='/postlist'>View Feed</Link>
                         <br/>
-                        <Link to='/adduser'>Register for account</Link>
+                        <Link to='/signup'>Register for account</Link>
                         <br/>
                         <Link to='/'>Landing</Link>
                     </div>

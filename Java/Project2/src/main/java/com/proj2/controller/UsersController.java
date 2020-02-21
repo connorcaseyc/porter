@@ -27,7 +27,14 @@ public class UsersController {
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", value="/auth.app")
 	public @ResponseBody Users authenticate(@RequestBody Users users){
+		
 		return users != null ? us.check(users) : users;
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value="updatepass.app")
+	public ResponseEntity<Users> changePassword(@RequestBody Users user) {
+		Users up = us.changePassword(user);
+		return new ResponseEntity<>(up, (up !=null) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/userlist.app",
@@ -39,8 +46,8 @@ public class UsersController {
 	@RequestMapping(method=RequestMethod.POST, value="/adduser.app", 
 			produces="application/json")
 	public ResponseEntity<Users> putInUser(@RequestBody Users u) {
-		us.insertUser(u);
-		return new ResponseEntity<>(u, HttpStatus.ACCEPTED);
+		
+		return new ResponseEntity<>(us.insertUser(u), HttpStatus.OK);
 	}
 	
 	@GetMapping("{email}/email.app")
@@ -69,7 +76,7 @@ public class UsersController {
 			produces="application/json")
 	public ResponseEntity<Users> updateUser(@RequestBody Users user) {
 		us.updateUser(user);
-		return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 
 }

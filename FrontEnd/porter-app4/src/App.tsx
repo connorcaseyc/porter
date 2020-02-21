@@ -15,7 +15,8 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import { history } from './history/history';
 import { PostFeedComponent } from './components/Feed/PostFeedComponent'; 
-
+import SignUpComponent from './components/sign-up-component/SignUpContainer';
+import {ChangePassword} from './components/secret-change-password/ChangePasswordComp';
 const isLoggedIn = () => localStorage.getItem("state");
 
 const App: React.FC = () => {
@@ -36,6 +37,8 @@ const App: React.FC = () => {
                             <Route path="/login" component={LoginComponent}/>
                             <Route path="/forgot" component={ForgottenPasswordComponent}/>
                             <Route path="/profile" component={ProfileComponent}/>
+                            <Route path="/signup" component={SignUpComponent}/>
+                            <Route path="/passchange" component={ChangePassword}/>
                             <Route path="/" component={Landing}/>
                         </Switch>
                     

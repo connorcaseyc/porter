@@ -4,7 +4,8 @@ import { history } from '../history/history';
 
 const initialState:IUserState = {
     currentUser:null,
-    loginMessage:''
+    loginMessage:'',
+    signupMessage:''
 }
 
 export const loginReducer = (state = initialState, action:any) => {

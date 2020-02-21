@@ -5,6 +5,7 @@ import { loginReducer } from './login-reducer';
 export interface IUserState {
     currentUser:any
     loginMessage:string
+    signupMessage:string
 }
 
 
