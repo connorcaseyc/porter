@@ -9,11 +9,6 @@ interface changeState{
     updateMessage:string
 }
 
-interface changePassProps{
-    changeUserPassword: (e:string, p:string) => void
-
-}
-
 export class ChangePassword extends React.Component<any, changeState>{
     constructor(props:any){
         super(props);
