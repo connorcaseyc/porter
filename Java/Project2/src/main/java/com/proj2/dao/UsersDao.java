@@ -30,7 +30,13 @@ public class UsersDao {
 	}
 	
 	public Users findByEmail(String email) {
-		return sesfact.getCurrentSession().get(Users.class, email);
+		List<Users> list = (List<Users>)sesfact.getCurrentSession().createQuery(
+				"from Users where email = '"+email+"'", Users.class).list();
+		if(list.size()>0) {
+			System.out.println(list.get(0).getUsername());
+			return list.get(0);
+		}
+		return null;
 	}
 	
 	public Users findById(int id) {
